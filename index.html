@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador ABNT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/?size=100&id=zBjddwJhT2N3&format=png&color=000000">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <button id="btnTema" class="btn-tema" aria-label="Alternar tema">
+        <span class="tema-icone">🌙</span>
+    </button>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span class="bracket">[</span>
+                    <span class="letter">A</span>
+                    <span class="bracket">]</span>
+                </div>
+                <h1>Formatador <span class="highlight">ABNT</span></h1>
+            </div>
+            <p class="subtitle">Transforme seu texto em um documento acadêmico perfeito</p>
+        </header>
+
+        <main class="main-content">
+      
+            <section class="form-section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>Informações da Capa</h2>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="instituicao">Instituição</label>
+                        <input type="text" id="instituicao" placeholder="Nome da universidade/instituição">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="curso">Curso</label>
+                        <input type="text" id="curso" placeholder="Nome do curso">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="titulo">Título do Trabalho</label>
+                        <input type="text" id="titulo" placeholder="Título completo do trabalho">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="autor">Autor(es)</label>
+                        <input type="text" id="autor" placeholder="Nome completo do autor">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orientador">Orientador</label>
+                        <input type="text" id="orientador" placeholder="Nome do orientador (opcional)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" placeholder="Cidade">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ano">Ano</label>
+                        <input type="text" id="ano" placeholder="2025">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>Sumário</h2>
+                </div>
+                
+                <div class="sumario-info">
+                    <p>O sumário será gerado automaticamente com base nas seções do seu texto.</p>
+                    <p>Use <code># Título</code> para seções principais e <code>## Subtítulo</code> para subseções.</p>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>Conteúdo do Trabalho</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label for="conteudo">Cole seu texto aqui</label>
+                    <textarea id="conteudo" rows="15" placeholder="Cole o conteúdo do seu trabalho...
+
+Use marcações para estruturar:
+# INTRODUÇÃO
+Texto da introdução...
+
+# DESENVOLVIMENTO
+## Primeira Seção
+Texto...
+
+## Segunda Seção
+Texto...
+
+# CONCLUSÃO
+Texto da conclusão...
+
+# REFERÊNCIAS
+SOBRENOME, Nome. Título. Cidade: Editora, Ano."></textarea>
+                </div>
+            </section>
+
+            <section class="form-section options-section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>Opções</h2>
+                </div>
+                
+                <div class="options-grid">
+                    <div class="option-card">
+                        <label class="option-label">Fonte</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="fonte" value="times" checked>
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Times New Roman</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="fonte" value="arial">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Arial</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card">
+                        <label class="option-label">Incluir</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="incluirCapa" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">Capa</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="incluirSumario" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">Sumário</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="generate-section">
+                <button id="btnGerar" class="btn-generate">
+                    <span class="btn-text">Gerar PDF ABNT</span>
+                    <span class="btn-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </main>
+
+
+        <div id="processingOverlay" class="processing-overlay">
+            <div class="processing-content">
+                <div class="processing-animation">
+                    <div class="paper">
+                        <div class="paper-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="formatting-elements">
+                        <div class="format-item margin-top">3cm</div>
+                        <div class="format-item margin-left">3cm</div>
+                        <div class="format-item margin-right">2cm</div>
+                        <div class="format-item margin-bottom">2cm</div>
+                        <div class="format-item font-size">12pt</div>
+                        <div class="format-item spacing">1,5</div>
+                    </div>
+                </div>
+                <div class="processing-steps">
+                    <div class="step" data-step="1">
+                        <span class="step-indicator"></span>
+                        <span class="step-text">Formatando margens...</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <span class="step-indicator"></span>
+                        <span class="step-text">Ajustando tipografia...</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <span class="step-indicator"></span>
+                        <span class="step-text">Gerando capa e sumário...</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <span class="step-indicator"></span>
+                        <span class="step-text">Aplicando espaçamento 1,5...</span>
+                    </div>
+                    <div class="step" data-step="5">
+                        <span class="step-indicator"></span>
+                        <span class="step-text">Finalizando documento...</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Normas ABNT: Papel A4 • Margens 3cm/2cm • Fonte 12pt • Espaçamento 1,5 • Recuo 1,5cm</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
